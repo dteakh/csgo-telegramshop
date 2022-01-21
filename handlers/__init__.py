@@ -1,3 +1,3 @@
-from . import start_handler
+from . import main_handlers
 
 
