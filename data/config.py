@@ -12,6 +12,10 @@ DB_HOST = env.str('DB_HOST')
 DB_USER = env.str('DB_USER')
 DB_PORT = env.str('DB_PORT')
 DB_PASS = env.str('DB_PASS')
+QIWI = env.str('QIWI')
+QIWI_NUMBER = env.str('QIWI_NUMBER')
+QIWI_PUB = env.str('QIWI_PUB')
+QIWI_SECRET = env.str('QIWI_SECRET')
 
 POSTGRES_URI = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}'
 

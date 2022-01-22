@@ -35,7 +35,7 @@ def return_users_purchases(user_id: int):
 
 @sync_to_async
 def get_all_feedbacks():
-    feedbacks = Users.objects.filter(feedback_text=not None)[3:]
+    feedbacks = Users.objects.exclude(feedback_text__isnull=True)[:3]
     return feedbacks
 
 
@@ -53,9 +53,32 @@ def set_rating(user_id: int, rate: str):
     return user.save()
 
 
-
 @sync_to_async
 def write_feedback(user_id: int, text: str):
     user = Users.objects.filter(user_id=int(user_id)).first()
     user.feedback_text = text
     return user.save()
+
+
+@sync_to_async
+def get_item_price(skin_id: int):
+    item = Items.objects.filter(id=int(skin_id)).first()
+    return item.price
+
+
+@sync_to_async
+def get_item_info(skin_id: int):
+    item = Items.objects.filter(id=int(skin_id))
+    return item
+
+
+
+@sync_to_async
+def delete_item_from_items(skin_id: int):
+    item = Items.objects.filter(id=int(skin_id)).first()
+    return item.delete()
+
+
+@sync_to_async
+def add_item_to_purchases(skin_id, name, price, buyer_id, buyer_link):
+    return Purchases(id=skin_id, name=name, price=price, buyer_id=buyer_id, buyer_link=buyer_link).save()

@@ -100,3 +100,10 @@ set_feedback_text = InlineKeyboardMarkup(row_width=1,
                                                  InlineKeyboardButton(text='Назад', callback_data='back_up_call')
                                              ]
                                          ])
+register_before_buying = InlineKeyboardMarkup(row_width=1,
+                                              inline_keyboard=[
+                                                  [
+                                                      InlineKeyboardButton(text='Зарегистрироваться', callback_data='register'),
+                                                      InlineKeyboardButton(text='Назад', callback_data='back_up_call')
+                                                  ]
+                                              ])
